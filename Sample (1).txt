@@ -1,0 +1,4 @@
+System.out.println(" hi, How r u ");
+System.out.println(" I am fine, Thank you");
+System.out.println(" Welcome to Capgemini");
+System.out.println(" Thank you");
