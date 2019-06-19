@@ -1,0 +1,192 @@
+//get details by Id
+
+  String query1="SELECT * FROM STUDENTS WHERE STUDENTID=10";
+
+  System.out.println(query1);
+
+  ResultSet rs=st.executeQuery(query1);
+
+
+
+  if(rs.next()){
+
+  do{
+
+  System.out.println("Student Id= "+rs.getString(1)+", Student Name= "+rs.getString(2));
+
+  }while(rs.next());
+
+  }
+
+  else{
+
+  System.out.println("Record Not Found...");
+
+  }
+
+
+
+ //update the data in database
+
+
+
+
+
+// String query2 = "update STUDENTS set name='Nivi' where studentId=10";
+
+//
+
+// int count = st.executeUpdate(query2);
+
+// System.out.println("Updated queries: "+count);
+
+
+
+// con.close();
+
+           //delete the data in databse
+
+
+
+      String query3="delete from STUDENTS where studentId=10";
+
+      st.executeUpdate(query3);
+
+      System.out.println("Row Deleted successfully ");
+
+      con.close();package com.crudUsingJdbc;
+
+
+
+import java.sql.Connection;
+
+import java.sql.DriverManager;
+
+import java.sql.ResultSet;
+
+import java.sql.SQLException;
+
+import java.sql.Statement;
+
+
+
+public class JdbcClass {
+
+
+
+ public static void main(String[] args) throws SQLException{
+
+ String url="jdbc:oracle:thin:@10.219.34.3:1521:orcl";
+
+ String username="trg219";
+
+ String password="training219";
+
+
+
+ Connection con=null;
+
+ //add data
+
+
+
+ String name="Sahana";
+
+ int studentId=30;
+
+ con=DriverManager.getConnection(url,username,password);
+
+ String query="INSERT INTO STUDENTS VALUES('"+studentId+"','"+name+"')";
+
+ System.out.println(query);
+
+
+
+ Statement st = con.createStatement();
+
+ int status =((java.sql.Statement) st).executeUpdate(query);
+
+
+
+  if(status==1)
+
+ {
+
+  System.out.println(status + " Inserted");
+
+ }
+
+ else
+
+ {
+
+  System.out.println("not inserted");
+
+ }
+
+
+
+ //get details by Id
+
+  String query1="SELECT * FROM STUDENTS WHERE STUDENTID=10";
+
+  System.out.println(query1);
+
+  ResultSet rs=st.executeQuery(query1);
+
+
+
+  if(rs.next()){
+
+  do{
+
+  System.out.println("Student Id= "+rs.getString(1)+", Student Name= "+rs.getString(2));
+
+  }while(rs.next());
+
+  }
+
+  else{
+
+  System.out.println("Record Not Found...");
+
+  }
+
+
+
+ //update the data in database
+
+
+
+
+
+// String query2 = "update STUDENTS set name='Nivi' where studentId=10";
+
+//
+
+// int count = st.executeUpdate(query2);
+
+// System.out.println("Updated queries: "+count);
+
+
+
+// con.close();
+
+           //delete the data in databse
+
+
+
+      String query3="delete from STUDENTS where studentId=10";
+
+      st.executeUpdate(query3);
+
+      System.out.println("Row Deleted successfully ");
+
+      con.close();
+
+ }
+
+
+
+}
+
